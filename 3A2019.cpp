@@ -71,6 +71,8 @@ bool conectadoFin(circulo c){
 }
 
 int main() {
+    ios_base::sync_with_stdio(0); cin.tie(0);
+    if(fopen("case.txt", "r")) freopen("case.txt", "r", stdin);
 	//leemos los datos
 	int k;
 	cin>>m>>n>>k;
@@ -84,7 +86,7 @@ int main() {
 		if(m - c.x <= c.s || c.y <= c.s){
 			//si estas conectado a ambas, acabas
 			if(conectadoFin(c)){
-				cout<<"N"<<endl;
+				cout<<"N\n";
 				return 0;
 			}
 			else
@@ -125,6 +127,6 @@ int main() {
 		swap(camino, auxCamino);swap(espera, auxEspera);
 	}
 	//si llega aqui, no hay secuencia de sensores que conecte a las paredes;
-	cout<<"S"<<endl;
+	cout<<"S\n";
 	return 0;
 }
