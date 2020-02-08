@@ -8,8 +8,11 @@ struct node{
 vector<int> adj[maxN+1];
 
 //=================== LCA
+//asumiento que los nodos van de 1 a n
+// si van de 0 a n-1 cambia el create LCA Table en el for nd = 1; nd < n
+//siempre asigna a la raiz como su propio padre
 int table[LogN+1][maxN+1], n;
-void assignParents(int nd, int fa = 0){
+void assignParents(int nd, int fa = nd){
     for(int son: adj[nd]){
         if(son != fa){
             nodes[son].level = 1 + nodes[nd].level;
@@ -25,10 +28,9 @@ void assignParents(int nd, int fa = 0){
 void createLCATable(){
     int mid;
 	for(int k = 1; k<=LogN; ++k){
-		for(int nd = 1; nd <= n; ++nd){
+		for(int nd = 2; nd <= n; ++nd){
            mid = table[k-1][nd];
-           if(mid != 0)
-               table[k][nd] = table[k-1][mid];
+           table[k][nd] = table[k-1][mid];
         }
     }
 }
