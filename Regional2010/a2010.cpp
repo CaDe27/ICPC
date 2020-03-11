@@ -86,7 +86,7 @@ int lca(int i, int j){
     return table[0][i];
 }
 
-long query(int a, int b){
+ll query(int a, int b){
     int l = lca(a, b);
     return nodes[a].height + nodes[b].height - 2*nodes[l].height;
 }   

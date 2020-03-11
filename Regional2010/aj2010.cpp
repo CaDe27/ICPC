@@ -8,8 +8,8 @@ typedef long long int lld;
 const int MAXN = 100002;
 
 vector < int > adj[MAXN];
-    int padre[MAXN][25];
-    int level[MAXN];
+int padre[MAXN][25];
+int level[MAXN];
     lld costo[MAXN];
 
 int main() {
@@ -67,8 +67,8 @@ int main() {
       if (caso) cout << " ";
       cout << costo[s] + costo[t] - 2ll * costo[lca];
     }
+    cout << "\n";
     cin >> n;
-    if (n) cout << "\n";
   }
   return 0;
 }
